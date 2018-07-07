@@ -1,0 +1,40 @@
+{
+  "name": "3h-random",
+  "version": "1.0.0",
+  "description": "A seedable randomizer.",
+  "main": "dist/index.umd.js",
+  "browser": "dist/index.umd.js",
+  "module": "dist/index.js",
+  "types": "typings/index.d.ts",
+  "scripts": {
+    "test": "node test/test.js",
+    "prebuild": "del /s dist\\*.js typings\\*.d.ts typings\\*.d.ts.map",
+    "build": "tsc && rollup -c",
+    "postbuild": "uglifyjs dist/index.js -c -m --keep-classnames --keep-fnames -o dist/index.min.js && uglifyjs dist/index.umd.js -c -m --keep-classnames --keep-fnames -o dist/index.umd.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huang2002/3h-random.git"
+  },
+  "keywords": [
+    "random",
+    "randomizer",
+    "randomiser",
+    "integer",
+    "float",
+    "boolean",
+    "string",
+    "3h"
+  ],
+  "author": "3h",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huang2002/3h-random/issues"
+  },
+  "homepage": "https://github.com/huang2002/3h-random#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "rollup-plugin-babel": "^3.0.7"
+  }
+}
