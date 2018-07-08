@@ -20,10 +20,10 @@ const randomizer = new Random.Randomizer(seed);
 # APIs
 
 - Randomizer
-    - `seed` *number* The seed of the randomizer.
-    - `cursor` *number* The cursor.
-    - `float(min = 0, max = 1)` *number* A random float in (min, max).
-    - `int(min = 1, max = 100)` *number* An random integer in [min, max].
-    - `boolean()` *boolean* A random boolean value.
-    - `string(radix = 16, upperCase = true)` *string* A random string.
-    - `reset(seed?: number)` *this* Reset the randomizer.
+    - `seed` *number* - The seed of the randomizer.
+    - `cursor` *number* - The cursor.
+    - `float(min = 0, max = 1)` *number* - Get a random float in (min, max).
+    - `int(min = 1, max = 100)` *number* - Get an random integer in [min, max].
+    - `boolean()` *boolean* - Get a random boolean value.
+    - `string(radix = 16, upperCase = true)` *string* - Get a random string.
+    - `reset(seed?: number)` *this* - Reset the randomizer.
