@@ -3,9 +3,7 @@ class Randomizer {
     constructor(seed = Date.now(), cursor = 0) {
         this.seed = seed;
         this.cursor = cursor;
-        for (let i = 0; i < cursor; i++) {
-            this._get();
-        }
+        this.reset(seed, cursor);
     }
     _get() {
         const { _last } = this;
@@ -27,9 +25,13 @@ class Randomizer {
         }
         return ans;
     }
-    reset(seed = this.seed) {
+    reset(seed = this.seed, cursor = 0) {
         this.seed = seed;
-        this.cursor = 0;
+        this.cursor = cursor;
+        this._last = undefined;
+        for (let i = 0; i < cursor; i++) {
+            this._get();
+        }
         return this;
     }
 }

@@ -21,9 +21,7 @@
 
             this.seed = seed;
             this.cursor = cursor;
-            for (var i = 0; i < cursor; i++) {
-                this._get();
-            }
+            this.reset(seed, cursor);
         }
 
         _createClass(Randomizer, [{
@@ -70,9 +68,14 @@
             key: 'reset',
             value: function reset() {
                 var seed = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.seed;
+                var cursor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
                 this.seed = seed;
-                this.cursor = 0;
+                this.cursor = cursor;
+                this._last = undefined;
+                for (var i = 0; i < cursor; i++) {
+                    this._get();
+                }
                 return this;
             }
         }]);

@@ -8,9 +8,7 @@ class Randomizer {
         public seed = Date.now(),
         public cursor = 0
     ) {
-        for (let i = 0; i < cursor; i++) {
-            this._get();
-        }
+        this.reset(seed, cursor);
     }
 
     private _last?: number;
@@ -39,9 +37,13 @@ class Randomizer {
         return ans;
     }
 
-    reset(seed = this.seed) {
+    reset(seed = this.seed, cursor = 0) {
         this.seed = seed;
-        this.cursor = 0;
+        this.cursor = cursor;
+        this._last = undefined;
+        for (let i = 0; i < cursor; i++) {
+            this._get();
+        }
         return this;
     }
 

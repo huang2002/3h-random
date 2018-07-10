@@ -8,7 +8,7 @@ declare class Randomizer {
     int(min?: number, max?: number): number;
     boolean(): boolean;
     string(radix?: number, upperCase?: boolean): string;
-    reset(seed?: number): this;
+    reset(seed?: number, cursor?: number): this;
 }
 declare const _default: Randomizer & {
     Randomizer: new (seed?: number | undefined) => Randomizer;
