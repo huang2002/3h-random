@@ -1,7 +1,9 @@
 declare class Randomizer {
     seed: number;
-    constructor(seed?: number);
     cursor: number;
+    constructor(seed?: number, cursor?: number);
+    private _last?;
+    private _get;
     float(min?: number, max?: number): number;
     int(min?: number, max?: number): number;
     boolean(): boolean;

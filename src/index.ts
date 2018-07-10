@@ -1,11 +1,26 @@
+const m = 1 << 20,
+    a = 9,
+    b = 7;
+
 class Randomizer {
 
-    constructor(public seed = Date.now()) { }
+    constructor(
+        public seed = Date.now(),
+        public cursor = 0
+    ) {
+        for (let i = 0; i < cursor; i++) {
+            this._get();
+        }
+    }
 
-    cursor = 0;
+    private _last?: number;
+    private _get() {
+        const { _last } = this;
+        return (this._last = ((a * (_last ? _last : this.seed) + b) % m)) / m;
+    }
 
     float(min = 0, max = 1) {
-        return min + ((Math.sin(this.seed + 2 * this.cursor++) + 1) / 2 % 1) * (max - min);
+        return min + this._get() * (max - min);
     }
 
     int(min = 1, max = 100) {

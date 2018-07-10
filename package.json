@@ -1,6 +1,6 @@
 {
     "name": "3h-random",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "description": "A seedable randomizer.",
     "main": "dist/index.umd.js",
     "browser": "dist/index.umd.js",
@@ -10,7 +10,8 @@
         "test": "node test/test.js",
         "prebuild": "del /s dist\\*.js typings\\*.d.ts typings\\*.d.ts.map",
         "build": "tsc && rollup -c",
-        "postbuild": "uglifyjs dist/index.js -c -m --toplevel --keep-classnames --keep-fnames -o dist/index.min.js && uglifyjs dist/index.umd.js -c -m --keep-classnames --keep-fnames -o dist/index.umd.min.js"
+        "postbuild": "uglifyjs dist/index.js -c -m --toplevel --keep-classnames --keep-fnames -o dist/index.min.js && uglifyjs dist/index.umd.js -c -m --keep-classnames --keep-fnames -o dist/index.umd.min.js",
+        "prepublish": "publish"
     },
     "repository": {
         "type": "git",

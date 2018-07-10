@@ -8,23 +8,38 @@
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+    var m = 1 << 20,
+        a = 9,
+        b = 7;
+
     var Randomizer = function () {
         function Randomizer() {
             var seed = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Date.now();
+            var cursor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
             _classCallCheck(this, Randomizer);
 
             this.seed = seed;
-            this.cursor = 0;
+            this.cursor = cursor;
+            for (var i = 0; i < cursor; i++) {
+                this._get();
+            }
         }
 
         _createClass(Randomizer, [{
+            key: '_get',
+            value: function _get() {
+                var _last = this._last;
+
+                return (this._last = (a * (_last ? _last : this.seed) + b) % m) / m;
+            }
+        }, {
             key: 'float',
             value: function float() {
                 var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
                 var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
-                return min + (Math.sin(this.seed + 2 * this.cursor++) + 1) / 2 % 1 * (max - min);
+                return min + this._get() * (max - min);
             }
         }, {
             key: 'int',
