@@ -24,7 +24,7 @@
                 var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
                 var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
-                return min + (Math.sin(this.seed + this.cursor++) + 1) / 2 % 1 * (max - min);
+                return min + (Math.sin(this.seed + 2 * this.cursor++) + 1) / 2 % 1 * (max - min);
             }
         }, {
             key: 'int',

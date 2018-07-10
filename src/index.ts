@@ -5,7 +5,7 @@ class Randomizer {
     cursor = 0;
 
     float(min = 0, max = 1) {
-        return min + ((Math.sin(this.seed + this.cursor++) + 1) / 2 % 1) * (max - min);
+        return min + ((Math.sin(this.seed + 2 * this.cursor++) + 1) / 2 % 1) * (max - min);
     }
 
     int(min = 1, max = 100) {
