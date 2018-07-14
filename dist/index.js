@@ -25,6 +25,9 @@ class Randomizer {
         }
         return ans;
     }
+    element(arrayLike) {
+        return arrayLike[this.int(0, arrayLike.length - 1)];
+    }
     reset(seed = this.seed, cursor = 0) {
         this.seed = seed;
         this.cursor = cursor;

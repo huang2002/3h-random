@@ -26,4 +26,5 @@ const randomizer = new Random.Randomizer(seed);
     - `int(min = 1, max = 100)` *number* - Get an random integer in [min, max].
     - `boolean()` *boolean* - Get a random boolean value.
     - `string(radix = 16, upperCase = true)` *string* - Get a random string.
+    - `element<T>(arrayLike: ArrayLike<T>)` *T* - Get a random element.
     - `reset(seed?: number)` *this* - Reset the randomizer.

@@ -8,6 +8,7 @@ declare class Randomizer {
     int(min?: number, max?: number): number;
     boolean(): boolean;
     string(radix?: number, upperCase?: boolean): string;
+    element<T>(arrayLike: ArrayLike<T>): T;
     reset(seed?: number, cursor?: number): this;
 }
 declare const _default: Randomizer & {

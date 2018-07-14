@@ -65,6 +65,11 @@
                 return ans;
             }
         }, {
+            key: 'element',
+            value: function element(arrayLike) {
+                return arrayLike[this.int(0, arrayLike.length - 1)];
+            }
+        }, {
             key: 'reset',
             value: function reset() {
                 var seed = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.seed;
