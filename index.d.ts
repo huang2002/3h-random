@@ -1,4 +1,4 @@
-import * as Random from "./typings/index";
+import Random from "./typings/index";
 
 export as namespace Random;
 
