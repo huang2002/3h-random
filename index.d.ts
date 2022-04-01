@@ -1,5 +1,3 @@
-import Random from "./typings/index";
+export as namespace HRandom;
 
-export as namespace Random;
-
-export = Random;
+export * from "./types/index";

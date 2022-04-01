@@ -1,30 +1,38 @@
 # 3h-random
 
-A seedable randomizer.
+> A randomizer lib.
 
-# Usage
-
-This lib can be used in both node environment and browser environment. `dist/index(.min).js` defines an es module, and `dist/index.umd(.min).js` defines a umd module.
-
-# Example
+## Usage
 
 ```javascript
-// The export object itself is an instance
-// of Randomizer which is seeded by Date.now().
-console.log(Random.float());
-// You can create your own randomizer via the
-// exported constructor.
-const randomizer = new Random.Randomizer(seed);
+/**
+ * Employ one of the following to import this lib
+ * or access the global namespace `HRandom` directly
+ * if you are using it as a UMD module.
+ * - import HRandom from '3h-random';
+ * - const HRandom = require('3h-random');
+ */
+
+const randomizer = new HRandom.Randomizer({
+    // seed: ...
+    // cursor: ...
+    // m: ...
+    // a: ...
+    // b: ...
+});
+
+console.log(randomizer.float(0, 1));
+console.log(randomizer.integer(0, 100));
+
+randomizer.reset(seed, cursor);
+
+console.log(randomizer.boolean(0.5));
+console.log(randomizer.string(16));
+console.log(randomizer.choice(choices));
 ```
 
-# APIs
+## Links
 
-- Randomizer
-    - `seed` *number* - The seed of the randomizer.
-    - `cursor` *number* - The cursor.
-    - `float(min = 0, max = 1)` *number* - Get a random float in (min, max).
-    - `int(min = 1, max = 100)` *number* - Get an random integer in [min, max].
-    - `boolean()` *boolean* - Get a random boolean value.
-    - `string(radix = 16, upperCase = true)` *string* - Get a random string.
-    - `element<T>(arrayLike: ArrayLike<T>)` *T* - Get a random element.
-    - `reset(seed?: number)` *this* - Reset the randomizer.
+- [API Reference](https://github.com/huang2002/3h-random/wiki)
+- [Changelog](./CHANGELOG.md)
+- [License (MIT)](./LICENSE)

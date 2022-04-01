@@ -1,13 +1,31 @@
-import rollupPluginBabel from "rollup-plugin-babel";
+import babel from "@rollup/plugin-babel";
 
-export default {
-    input: './dist/index.js',
-    output: {
-        file: './dist/index.umd.js',
-        format: 'umd',
-        name: 'Random'
+const input = './js/index.js';
+
+export default [
+    {
+        input,
+        plugins: [
+            babel({
+                babelHelpers: 'bundled',
+                presets: [
+                    ['@babel/preset-env', {
+                        loose: true,
+                    }],
+                ],
+            }),
+        ],
+        output: {
+            format: 'umd',
+            name: 'HRandom',
+            file: './dist/3h-random.umd.js',
+        },
     },
-    plugins: [
-        rollupPluginBabel()
-    ]
-}
+    {
+        input,
+        output: {
+            format: 'esm',
+            file: './dist/3h-random.js',
+        },
+    },
+];

@@ -1,2 +1,4 @@
 node_modules
-publish.bat
+types
+js
+dist
