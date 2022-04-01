@@ -1,6 +1,0 @@
-src
-test
-typings/*.d.ts.map
-.babelrc
-rollup.config.js
-tsconfig.json
